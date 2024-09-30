@@ -14,7 +14,7 @@ export default function Home() {
       setPosts(data);
     };
     fetchPosts();
-  }, []);
+  }, [posts]);
 
   return (
     <div>

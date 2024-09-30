@@ -7,6 +7,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header>
           <nav>
             <Link href="/">Post List</Link>
+            <br />
             <Link href="/create">Create Post</Link>
           </nav>
         </header>
