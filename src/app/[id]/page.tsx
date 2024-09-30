@@ -2,13 +2,14 @@
 
 import { supabase } from '@/lib/supabase';
 import { Post } from '@/types';
-import { notFound } from 'next/navigation';
+import { notFound, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function PostDetail({ params }: { params: { id: string } }) {
   const { id } = params;
   const [post, setPost] = useState<Post | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -35,7 +36,7 @@ export default function PostDetail({ params }: { params: { id: string } }) {
       });
 
       if (response.ok) {
-        window.location.href = '/';
+        router.push('/');
       } else {
         const errorData = await response.json();
         console.error('Error deleting post:', errorData.error);
