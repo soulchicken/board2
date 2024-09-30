@@ -1,23 +1,13 @@
-import { ReactNode } from 'react';
+import Link from "next/link";
 
-export const metadata = {
-  title: 'My Board',
-  description: 'Next.js와 Supabase를 사용한 게시판',
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
       <body>
         <header>
-          <h1>My Board</h1>
           <nav>
-            <a href="/">홈</a>
-            <a href="/create">게시글 작성</a>
+            <Link href="/">Post List</Link>
+            <Link href="/create">Create Post</Link>
           </nav>
         </header>
         <main>{children}</main>
